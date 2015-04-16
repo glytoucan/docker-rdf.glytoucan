@@ -20,7 +20,7 @@ rm:
 	sudo docker rm rdf.glytoucan
 
 logs:
-	sudo docker logs rdf.glytoucan
+	sudo docker logs --tail=100 -f rdf.glytoucan
 
 ip:
 	sudo docker inspect -f "{{ .NetworkSettings.IPAddress }}" rdf.glytoucan
