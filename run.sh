@@ -1,2 +1,2 @@
 #!/bin/sh
-mvn --debug spring-boot:run
+mvn --debug spring-boot:run &
