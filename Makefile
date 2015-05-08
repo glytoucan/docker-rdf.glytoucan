@@ -5,7 +5,7 @@ buildnc:
 	sudo docker build --no-cache -t aoki/rdf.glytoucan .
 
 run:
-	sudo docker run -d -h local.rdf.glytoucan -p 81:8080 -v /opt/rdf.glytoucan/maven:/root/.m2 -v /mnt/jenkins/workspace/rdf.glytoucan-ws:/workspace --name="rdf.glytoucan" aoki/rdf.glytoucan
+	sudo docker run -d --restart="always" -h local.rdf.glytoucan -p 81:8080 -v /opt/rdf.glytoucan/maven:/root/.m2 -v /mnt/jenkins/workspace/rdf.glytoucan-ws:/workspace --name="rdf.glytoucan" aoki/rdf.glytoucan
 
 bash:
 	sudo docker run --rm -it -h local.rdf.glytoucan -v /opt/rdf.glytoucan/tmp:/tmp -v /home/aoki/workspace/rdf.glytoucan:/workspace -v /opt/rdf.glytoucan/maven:/root/.m2 aoki/rdf.glytoucan /bin/bash
