@@ -1,7 +1,7 @@
-FROM maven:3.3.1-jdk-7
+FROM maven:latest
 MAINTAINER Nobuyuki Aoki "aokinobu@gmail.com"
 
-WORKDIR /workspace
+#WORKDIR /workspace
 
 ADD run.sh /run.sh
 RUN chmod a+x /run.sh

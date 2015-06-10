@@ -7,8 +7,12 @@ buildnc:
 run:
 	sudo docker run -d --restart="always" -h local.rdf.glytoucan -p 81:8080 -v /opt/rdf.glytoucan/maven:/root/.m2 -v /mnt/jenkins/workspace/rdf.glytoucan-ws:/workspace --name="rdf.glytoucan" aoki/rdf.glytoucan
 
+rundev:
+	sudo docker run -d --restart="always" -h local.rdf.glytoucan -p 81:8080  -v /opt/rdf.glytoucan/maven:/root/.m2 -v ~/workspace/rdf.glytoucan:/workspace -w /workspace --name="rdf.glytoucan" maven:3.3.3-jdk-8 mvn --debug spring-boot:run
+#	sudo docker run -d --restart="always" -h local.rdf.glytoucan -p 81:8080  -v /opt/rdf.glytoucan/maven:/root/.m2 -v ~/workspace/rdf.glytoucan:/workspace --name="rdf.glytoucan" aoki/rdf.glytoucan
+
 bash:
-	sudo docker run --rm -it -h local.rdf.glytoucan -v /opt/rdf.glytoucan/tmp:/tmp -v /home/aoki/workspace/rdf.glytoucan:/workspace -v /opt/rdf.glytoucan/maven:/root/.m2 aoki/rdf.glytoucan /bin/bash
+	sudo docker run --rm -it -h local.rdf.glytoucan -v ~/workspace/rdf.glytoucan:/workspace -v /opt/rdf.glytoucan/maven:/root/.m2 aoki/rdf.glytoucan /bin/bash
 
 ps:
 	sudo docker ps
@@ -33,7 +37,7 @@ inspect:
 
 rerun: stop rm rund
 
-cleandev: builddev stopdev rmdev rundev
+cleandev: build stop rm rundev
 
 clean: build stop rm rund
 
