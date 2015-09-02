@@ -38,6 +38,9 @@ rm:
 logs:
 	sudo docker logs --tail=100 -f rdf.glytoucan
 
+betalogs:
+	sudo docker logs --tail=100 -f beta.glytoucan
+
 ip:
 	sudo docker inspect -f "{{ .NetworkSettings.IPAddress }}" rdf.glytoucan
 
