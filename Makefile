@@ -5,18 +5,18 @@ buildnc:
 	sudo docker build --no-cache -t aoki/rdf.glytoucan .
 
 run:
-	sudo docker run -d --restart="always" -h local.rdf.glytoucan -p 8181:8080  -v /opt/rdf.glytoucan/maven:/root/.m2 -v /mnt/jenkins/workspace/rdf.glytoucan-ws:/workspace -w /workspace --name="rdf.glytoucan" maven:3.3.3-jdk-8 mvn -U spring-boot:run
+	sudo docker run -d --restart="always" -h local.rdf.glytoucan -p 8181:80  -v /opt/rdf.glytoucan/maven:/root/.m2 -v /mnt/jenkins/workspace/rdf.glytoucan-ws:/workspace -w /workspace --name="rdf.glytoucan" maven:3.3.3-jdk-8 mvn -U spring-boot:run
 
 rundev:
-	sudo docker run -d --restart="always" -h local.rdf.glytoucan -p 81:8080  -v /opt/rdf.glytoucan/maven:/root/.m2 -v ~/workspace/rdf.glytoucan:/workspace -w /workspace --name="rdf.glytoucan"  maven:3.3.3-jdk-8 mvn -U --debug spring-boot:run
+	sudo docker run -d --restart="always" -h local.rdf.glytoucan -p 81:80  -v /opt/rdf.glytoucan/maven:/root/.m2 -v ~/workspace/rdf.glytoucan:/workspace -w /workspace --name="rdf.glytoucan"  maven:3.3.3-jdk-8 mvn -U --debug spring-boot:run
 #	sudo docker run -d --restart="always" -h local.rdf.glytoucan -p 81:8080  -v /opt/rdf.glytoucan/maven:/root/.m2 -v ~/workspace/rdf.glytoucan:/workspace --name="rdf.glytoucan" aoki/rdf.glytoucan
 #--link stanza_bluetree:stanza.glytoucan.org
 
 runbeta:
-	sudo docker run -d --restart="always" -h local.beta.glytoucan -p 83:8080  -v /opt/beta.glytoucan/maven:/root/.m2 -v /mnt/jenkins/workspace/beta.glytoucan.org:/workspace -w /workspace --name="beta.glytoucan" maven:3.3.3-jdk-8 mvn -U spring-boot:run
+	sudo docker run -d --restart="always" -h local.beta.glytoucan -p 83:80  -v /opt/beta.glytoucan/maven:/root/.m2 -v /mnt/jenkins/workspace/beta.glytoucan.org:/workspace -w /workspace --name="beta.glytoucan" maven:3.3.3-jdk-8 mvn -U spring-boot:run
 
 runbetatest:
-	sudo docker run -d --restart="always" -h local.rdf.glytoucan -p 82:8080  -v /opt/rdf.glytoucan/maven:/root/.m2 -v /mnt/jenkins/workspace/beta.glytoucan.org:/workspace -w /workspace --name="beta.glytoucan.org" maven:3.3.3-jdk-8 mvn -U spring-boot:run
+	sudo docker run -d --restart="always" -h local.rdf.glytoucan -p 82:80  -v /opt/rdf.glytoucan/maven:/root/.m2 -v /mnt/jenkins/workspace/beta.glytoucan.org:/workspace -w /workspace --name="beta.glytoucan.org" maven:3.3.3-jdk-8 mvn -U spring-boot:run
 
 bash:
 	sudo docker exec -it rdf.glytoucan /bin/bash
