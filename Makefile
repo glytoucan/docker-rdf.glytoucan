@@ -5,7 +5,7 @@ buildnc:
 	sudo docker build --no-cache -t aoki/rdf.glytoucan .
 
 run:
-	sudo docker run -d --restart="always" -h local.rdf.glytoucan -p 8181:8080  -v /opt/rdf.glytoucan/maven:/root/.m2 -v /mnt/jenkins/workspace/rdf.glytoucan-ws:/workspace -w /workspace --name="rdf.glytoucan" maven:3.3.3-jdk-8 mvn -U spring-boot:run
+	sudo docker run -d --restart="always" -h local.rdf.glytoucan -p 81:8080  -v /opt/rdf.glytoucan/maven:/root/.m2 -v /mnt/jenkins/workspace/rdf.glytoucan-ws:/workspace -w /workspace --name="rdf.glytoucan" maven:3.3.3-jdk-8 mvn -U spring-boot:run
 
 rundev:
 	sudo docker run -d --restart="always" -h local.rdf.glytoucan -p 81:8080  -v /opt/rdf.glytoucan/maven:/root/.m2 -v ~/workspace/rdf.glytoucan:/workspace -w /workspace --name="rdf.glytoucan"  maven:3.3.3-jdk-8 mvn -U --debug spring-boot:run
