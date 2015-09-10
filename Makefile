@@ -14,6 +14,7 @@ rundev:
 #--link stanza_bluetree:stanza.glytoucan.org
 
 runbeta:
+	. /home/jenkins/docker-beta.glytoucan/env.sh
 	sudo docker run -d --restart="always" -h local.rdf.glytoucan -p 83:80  -v /opt/beta.glytoucan/tmp:/tmp -v /opt/beta.glytoucan/maven:/root/.m2 -v /mnt/jenkins/workspace/beta.glytoucan.org:/workspace -w /workspace --name="beta.glytoucan" -e "google.oauth2.clientId=$(GOOGLE_OAUTH2_CLIENTID)" -e "google.oauth2.clientSecret=$(GOOGLE_OAUTH2_CLIENTSECRET)"  aoki/rdf.glytoucan
 #	sudo docker run -d --restart="always" -h local.beta.glytoucan -p 83:80  -v /opt/beta.glytoucan/maven:/root/.m2 -v /mnt/jenkins/workspace/beta.glytoucan.org:/workspace -w /workspace --name="beta.glytoucan" maven:3.3.3-jdk-8 mvn -U spring-boot:run
 
