@@ -33,6 +33,10 @@ cleanbeta:
 	sudo docker stop beta.glytoucan
 	sudo docker rm beta.glytoucan
 
+cleanprod:
+	sudo docker stop prod.glytoucan
+	sudo docker rm prod.glytoucan
+
 stop:
 	sudo docker stop rdf.glytoucan
 
