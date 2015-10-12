@@ -62,7 +62,8 @@ rerun: stop rm rund
 
 cleandev: build stop rm rundev
 
-clean: build stop rm rund
+clean: 
+	sudo docker run -v /opt/beta.glytoucan/maven:/root/.m2 -v /home/aoki/workspace/rdf.glytoucan:/workspace -w /workspace maven:3.3.3-jdk-8 mvn clean
 
 # not tested
 dump:
