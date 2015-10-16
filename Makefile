@@ -49,6 +49,9 @@ logs:
 betalogs:
 	sudo docker logs --tail=100 -f beta.glytoucan
 
+prodlogs:
+	sudo docker logs --tail=10000 -f prod.glytoucan
+
 ip:
 	sudo docker inspect -f "{{ .NetworkSettings.IPAddress }}" rdf.glytoucan
 
