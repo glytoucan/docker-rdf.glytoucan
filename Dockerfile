@@ -1,4 +1,4 @@
-FROM maven:3-jdk-8
+FROM maven:3.3.9-jdk-8
 MAINTAINER Nobuyuki Aoki "aokinobu@gmail.com"
 
 ADD cacerts /etc/ssl/certs/java/cacerts
