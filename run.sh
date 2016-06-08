@@ -1,2 +1,2 @@
 #!/bin/sh
-mvn --debug -U spring-boot:run
+mvn --debug -U clean package spring-boot:run
