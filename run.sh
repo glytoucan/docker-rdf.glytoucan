@@ -1,2 +1,2 @@
 #!/bin/sh
-mvn --debug -U -DskipTests=true clean package spring-boot:run
+mvn -U -DskipTests=true spring-boot:run
